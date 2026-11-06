@@ -25,16 +25,18 @@
         </dependency>
     </dependencies>
 
-    <!-- Maven Build and Testing -->
+    <!-- Build Plugins -->
     <build>
         <plugins>
 
+            <!-- Java Compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
             </plugin>
 
+            <!-- JUnit Test Execution -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -43,6 +45,20 @@
                     <includes>
                         <include>**/*test.java</include>
                     </includes>
+                </configuration>
+            </plugin>
+
+            <!-- Create Executable JAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>evenodd.evenodd</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
 
